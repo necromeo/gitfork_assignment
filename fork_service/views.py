@@ -6,8 +6,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from django.utils.html import format_html
-
+from django.contrib.auth.decorators import login_required
 from .utils import get_user_url
 
 log = logging.getLogger(__name__)
@@ -54,7 +53,7 @@ def fork_repo(request):
 
     return redirect(reverse("result"))
 
-
+@login_required(login_url=settings.LOGIN_REDIRECT_URL)
 def result(request):
     user_repo = request.session.pop("user_repo", "")
     return render(
