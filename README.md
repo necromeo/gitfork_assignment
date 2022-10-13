@@ -5,7 +5,12 @@ A simple application to fork this repository into your GitHub account.
 ## Design decisions
 
 Given the time constraint to hand in this assignment the framework of choice was Django. With more time, a micro framework would have made more sense. Something without all the extra overhead and boilerplate like FastAPI or Flask. However, the second reason to go down the Django route was that Social Auth was necessary to meet the assignments requirements.
+
 An all backend approach was chosen to tackle the call to GitHubs API to fork the repository. A more UI friendly decision would have been to handle the request with AJAX on the front end side and alter the DOM to present the results. Django Templating language was used instead and once the fork button is pressed the user is presented with another view and a message indicating that the repository is being forked and a link to his/her own GitHub page.
+
+Docker, together with Docker Compose, for the DB service, was used to develop this App locally. This has the benefit of allowing for a uniform development environment across different machines and smoothens the deployment process. It also allows us to make sure we're using Python. In this case the lightweight "slim-buster" image for the latest 3.7 release.
+
+For dependency management, the project was started on barebones pip installs and updating a requirements.txt file. However, this approach was soon scrapped in favor of Poetry, which, in the author's opinion, is the best modern dependency manager for Python. And it does a lot more than just that.
 
 Things that could be improved upon:
 * The first and foremost, testing. This assignment clearly fails on the TDD side of things. However, TDD is not about speed and was, therefore, consciously abandoned for this assignment.
