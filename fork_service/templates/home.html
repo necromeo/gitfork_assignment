@@ -1,8 +1,11 @@
-{% extends 'base.html' %} {% load socialaccount %} {% block content %}
+{% extends 'base.html' %}
+{% load socialaccount %}
 
-<div class="container" style="text-align: center; padding-top: 10%">
-  <h1>Welcome to Fork Me</h1>
-
+{% block content %}
+  <h1>Welcome to Git Fork Me</h1>
+  <br />
+  <p>A very simple application to this site's repository into your GitHub account.
+  <p>Feel free to checkout the code at <a href="https://github.com/necromeo/gitfork_assignment">Git Fork Me</a></p>
   <br /><br />
 
   {% if user.is_authenticated %}
@@ -19,6 +22,6 @@
     <span>Login with GitHub</span>
   </a>
   {% endif %}
-</div>
+
 
 {% endblock content %}
