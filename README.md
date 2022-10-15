@@ -16,6 +16,7 @@ Things that could be improved upon:
 * The first and foremost, testing. This assignment clearly fails on the TDD side of things. However, TDD is not about speed and was, therefore, consciously abandoned for this assignment.
 * UI. The user login page after clicking on the Log In through GitHub button needs work. In it's current state, it's functional but far from pretty.
 * Verify that all other means of registering but using GitHub are completely deactivated.
+* I should have settled on a name sooner. Hence, the mismatch between the repositories name and actual site.
 
 
 ## Setting up project after forking
