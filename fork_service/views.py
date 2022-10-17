@@ -1,12 +1,14 @@
 import logging
+from http import HTTPStatus
 
 import requests
 from allauth.socialaccount.models import SocialToken
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from django.contrib.auth.decorators import login_required
+
 from .utils import get_user_url
 
 log = logging.getLogger(__name__)
@@ -43,8 +45,8 @@ def fork_repo(request):
     except Exception as e:
         log.error(f"Forking exception: {e}")
     else:
-        if req.status_code >= 400:
-            log.error(f"Forking failed: {req.text}")
+        if req.status_code != HTTPStatus.ACCEPTED:
+            log.error(f"Forking failed: {req.status_code} - {req.text}")
             messages.error(request, "There was an error forking the repository.")
         else:
             messages.info(request, "Repo is being forked...")
@@ -52,6 +54,7 @@ def fork_repo(request):
     request.session["user_repo"] = user_url
 
     return redirect(reverse("result"))
+
 
 @login_required(login_url=settings.LOGIN_REDIRECT_URL)
 def result(request):
