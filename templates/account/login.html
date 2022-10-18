@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Sign In" %}</h1>
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with your GitHub account.{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+    <a href="{% provider_login_url 'github' %}" class="btn btn-secondary">
+        <i class="fa fa-github fa-fw"></i>
+        <span>Sign In with GitHub</span>
+    </a>
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %}
+
+{% endblock %}
