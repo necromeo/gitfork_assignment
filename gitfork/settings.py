@@ -79,7 +79,10 @@ ROOT_URLCONF = "gitfork.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates"),
+            os.path.join(BASE_DIR, f"fork_service{os.sep}templates"),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
