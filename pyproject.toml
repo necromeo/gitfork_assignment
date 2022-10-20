@@ -6,7 +6,7 @@ authors = ["Ivan Andre Scheel <andrescheel@protonmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.7.13"
+python = "^3.7"
 asgiref = "3.5.2"
 certifi = "2022.9.24"
 cffi = "1.15.1"
