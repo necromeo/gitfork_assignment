@@ -24,6 +24,13 @@ Things that could be improved upon:
 ## Setting up project after forking
 
 This project was dockerized with the intention of being run on any machine without issues.
+However, you might want to install all the dependencies for easier local development.
+This can be done by running `poetry install` in the root folder of the project where the `pyproject.toml` file is present. If you find yourself
+having issues because of the Python version you'll need install Python 3.7. If you don't intend to replace
+your system Python version, install [Pyenv](https://github.com/pyenv/pyenv).
+Then, create the Poetry env by running `poetry env use <path to 3.7 executable>`.
+And, finally, run `poetry install` and select the new environment in your IDE.
+
 Before running building the App, please create an .env file (you can use the .env.example file in this repository as a starter).
 
 Next, head over to https://github.com/settings/developers.
